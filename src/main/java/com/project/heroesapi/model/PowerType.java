@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 @Entity
 public class PowerType {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id")
     private long id;
 
-    @Column(nullable = false)
+    @Column(name = "type", nullable = false)
     private String type;
 }
