@@ -33,4 +33,14 @@ public class Hero {
     @JoinTable(name = "hero_power", joinColumns = @JoinColumn(name = "hero_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "power_id", referencedColumnName = "id"))
     private List<Power> powers;
+
+    public void updateHeroObject(Hero otherHero){
+        this.setName(otherHero.getName());
+        this.setNickname(otherHero.getNickname());
+        this.setArmour(otherHero.getArmour());
+        this.setSpeed(otherHero.getSpeed());
+        this.setVitality(otherHero.getVitality());
+        this.setHistory(otherHero.getHistory());
+        this.setPowers(otherHero.getPowers());
+    }
 }
