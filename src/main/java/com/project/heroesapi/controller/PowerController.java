@@ -1,5 +1,6 @@
 package com.project.heroesapi.controller;
 
+import com.project.heroesapi.model.Hero;
 import com.project.heroesapi.model.Power;
 import com.project.heroesapi.model.PowerType;
 import com.project.heroesapi.repository.PowerRepo;
@@ -20,6 +21,18 @@ public class PowerController {
     @GetMapping
     public List<Power> getPowers(){
         return powerRepo.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getPower(@PathVariable(value = "id") Long id){
+        Power power = powerRepo.findById(id).orElse(null);
+        if(power == null){
+            return ResponseHandler.generateResponse("O objeto não foi encontrado.",
+                    HttpStatus.NOT_FOUND, null);
+        }else{
+            return ResponseHandler.generateResponse("O objeto foi encontrado",
+                    HttpStatus.OK, power);
+        }
     }
 
     @PostMapping

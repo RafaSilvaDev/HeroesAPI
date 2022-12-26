@@ -23,6 +23,18 @@ public class HeroController {
         return heroRepo.findAll();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getHero(@PathVariable(value = "id") Long id){
+        Hero hero = heroRepo.findById(id).orElse(null);
+        if(hero == null){
+            return ResponseHandler.generateResponse("O objeto não foi encontrado.",
+                    HttpStatus.NOT_FOUND, null);
+        }else{
+            return ResponseHandler.generateResponse("O objeto foi encontrado",
+                    HttpStatus.OK, hero);
+        }
+    }
+
     @PostMapping
     public Hero addHero(@RequestBody Hero hero){
         return heroRepo.save(hero);
