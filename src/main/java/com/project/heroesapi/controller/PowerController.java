@@ -1,8 +1,5 @@
 package com.project.heroesapi.controller;
-
-import com.project.heroesapi.model.Hero;
 import com.project.heroesapi.model.Power;
-import com.project.heroesapi.model.PowerType;
 import com.project.heroesapi.repository.PowerRepo;
 import com.project.heroesapi.response.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;

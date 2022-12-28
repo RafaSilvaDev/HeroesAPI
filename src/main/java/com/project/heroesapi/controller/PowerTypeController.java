@@ -1,6 +1,4 @@
 package com.project.heroesapi.controller;
-
-import com.project.heroesapi.model.Power;
 import com.project.heroesapi.model.PowerType;
 import com.project.heroesapi.repository.PowerTypeRepo;
 import com.project.heroesapi.response.ResponseHandler;
